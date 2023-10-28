@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <h1>Cifra de Cézar</h1>
+
+    <form action="">
+        <div class="container-textAreas">
+            <!-- MENSAGEM A PRIMÁRIA -->
+            <div class="container-mensagem">
+                <textarea name="nmMensagem" placeholder="Texto para criptografar..." id="idMensagem" cols="30" rows="10"></textarea>
+            </div>
+            <!-- MENSAGEM RESPOSTA -->
+            <div class="container-resposta">
+                <textarea name="nmResposta" id="idResposta" placeholder="Mensagem criptografada..." cols="30" rows="10" readonly></textarea>
+            </div>
+        </div>
+
+        <!-- CHAVE DE CRIPTOGRAFIA -->
+        <div class="container-specs">
+            <input type="text" title="Chave de Deslocamento" placeholder="Chave de Criptografia" name="nmChave" id="idChave" maxlength="1">
+
+            <div>
+                <input type="radio" name="criptografia" id="idCifrado" value="Cifrar" checked>
+                <label for="idCifrado">Cifrar</label>
+                <input type="radio" name="criptografia" id="idDecifrado" value="Descifrar">
+                <label for="idDecifrado">Decifrar</label>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+
+
+
+</body>
+</html>

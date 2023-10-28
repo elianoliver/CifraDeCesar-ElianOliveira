@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    /* outline: 1px solid red; */
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/001/797/851/original/mysterious-clouds-fantasy-background-free-video.jpg');
+
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+/* ================= CONTAINER TRANSPARENTE ===========================*/
+form {
+    width: 100%;
+    max-width: 50%;
+    min-width: 800px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(50px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    /* ======================== CONTAINER PAI DOS TEXTAREAS =============== */
+    & > .container-textAreas {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+
+        &>div {
+            flex: 1;
+        }
+
+        &>div>textarea{
+            background-color: rgba(255, 255, 255, 0.068);
+            color: #fff;
+            font-size: 1.2rem;
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            resize: none;
+        }
+    }
+
+    /* ======================== CONTAINER DAS SPECS ======================== */
+    & > .container-specs{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        & > #idChave{
+            background-color: rgba(255, 255, 255, 0.068);
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 5px 10px;
+        }
+
+        & div{
+            background-color: rgba(255, 255, 255, 0.068);
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 1rem;
+
+            & > inputinput[type=radio], label{
+                cursor: pointer;
+            }
+        }
+
+    }
+
+
+}
