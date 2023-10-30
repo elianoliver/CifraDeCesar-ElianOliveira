@@ -52,6 +52,9 @@ mensagem.addEventListener('input', (e) => {
 });
 
 function copiar() {
+    if (resultado.value === '') {
+        return;
+    }
     resultado.select();
     document.execCommand('copy');
     alert('Texto copiado!');

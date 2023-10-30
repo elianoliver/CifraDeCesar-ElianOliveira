@@ -28,6 +28,7 @@ body {
 h1 {
     font-family: 'Montserrat', sans-serif;
 }
+
 /* ================= CONTAINER TRANSPARENTE ===========================*/
 form {
     width: 100%;
@@ -44,7 +45,7 @@ form {
     gap: 20px;
 
     /* ======================== CONTAINER PAI DOS TEXTAREAS =============== */
-    & > .container-textAreas {
+    &>.container-textAreas {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -54,7 +55,7 @@ form {
             flex: 1;
         }
 
-        &>div>textarea{
+        &>div>textarea {
             background-color: rgba(255, 255, 255, 0.068);
             color: #fff;
             font-size: 1.2rem;
@@ -67,18 +68,18 @@ form {
             resize: none;
         }
 
-        & textarea#idResposta:hover{
+        & textarea#idResposta:hover {
             cursor: pointer;
         }
     }
 
     /* ======================== CONTAINER DAS SPECS ======================== */
-    & > .container-specs{
+    &>.container-specs {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        & > #idChave{
+        &>#idChave {
             background-color: rgba(255, 255, 255, 0.068);
             color: #fff;
             font-size: 1rem;
@@ -88,18 +89,24 @@ form {
             padding: 5px 10px;
         }
 
-        & div{
+        & div {
             background-color: rgba(255, 255, 255, 0.068);
             border-radius: 5px;
             padding: 5px 10px;
             font-size: 1rem;
 
-            & > inputinput[type=radio], label{
+            &>inputinput[type=radio],
+            label {
                 cursor: pointer;
             }
         }
 
     }
+}
 
-
+img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 90%;
 }
