@@ -2,31 +2,57 @@ let mensagem = document.querySelector('#idMensagem');
 let resultado = document.querySelector('#idResposta');
 let chave = document.querySelector('#idChave');
 
-mensagem.addEventListener('keyup', (e) => {
-    let opcao = document.querySelector("input[name=criptografia]:checked");
+mensagem.addEventListener('input', (e) => {
+    let opcao = document.querySelector("input[name=criptografia]:checked").value;
+    let valorChave = chave.value;
+    let valorMensagem = mensagem.value;
 
-    let a = chave.value;
-    b = parseInt(a);
+    // LIMPA O RESULTADO
+    resultado.value = '';
 
-    resultado.value = ''; // Limpa o valor atual em resultado
-    if (a === '') return; // Se a mensagem estiver vazia, não faça nada
+    // SE A CHAVE ESTIVER VAZIA, ATRIBUA 0
+    if (valorChave === '') {
+        chave.value = 0;
+    }
+    // SE CHAVE FOR NÚMERO, PARSE INT
+    else if (!isNaN(valorChave)) {
+        valorChave = parseInt(valorChave);
+    }
+    // SE CHAVE FOR LETRA, CHAVE VIRA -> A=1, B=2, C=3, etc
+    else if (valorChave.match(/[a-zA-Z]/)) {
+        valorChave = valorChave.toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0) + 1;
+    }
 
-    if (!isNaN(b)) { // Verifica se a chave é um número
-        for (const char of mensagem.value) {
-            if (opcao.value === 'Cifrar') { // Use 'Cifrar' ou 'Descifrar' conforme necessário
-                resultado.value += String.fromCharCode(char.charCodeAt() + b);
-            } else if (opcao.value === 'Descifrar') {
-                resultado.value += String.fromCharCode(char.charCodeAt() - b);
-            }
+    for (const char of valorMensagem) {
+        if (char === ' ') {
+            resultado.value += ' ';
         }
-    } else { // Se não for um número
-        a = a.charCodeAt(0); // Obtenha o valor ASCII do primeiro caractere da chave
-        for (const char of mensagem.value) {
-            if (opcao.value === 'Cifrar') {
-                resultado.value += String.fromCharCode(char.charCodeAt() + a);
-            } else if (opcao.value === 'Descifrar') {
-                resultado.value += String.fromCharCode(char.charCodeAt() - a);
+        else if (char === '\n') {
+            resultado.value += '\n';
+        }
+        else {
+            let cifra = char.charCodeAt(0) + (opcao === 'Cifrar' ? valorChave : -valorChave);
+
+            if (char >= 'A' && char <= 'Z') {
+                if (opcao === 'Cifrar' && cifra > 'Z'.charCodeAt(0)) {
+                    cifra -= 26;
+                } else if (opcao === 'Descifrar' && cifra < 'A'.charCodeAt(0)) {
+                    cifra += 26;
+                }
+            } else if (char >= 'a' && char <= 'z') {
+                if (opcao === 'Cifrar' && cifra > 'z'.charCodeAt(0)) {
+                    cifra -= 26;
+                } else if (opcao === 'Descifrar' && cifra < 'a'.charCodeAt(0)) {
+                    cifra += 26;
+                }
             }
+            resultado.value += String.fromCharCode(cifra);
         }
     }
 });
+
+function copiar() {
+    resultado.select();
+    document.execCommand('copy');
+    alert('Texto copiado!');
+}

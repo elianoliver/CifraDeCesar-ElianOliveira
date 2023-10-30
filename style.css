@@ -66,6 +66,10 @@ form {
             outline: none;
             resize: none;
         }
+
+        & textarea#idResposta:hover{
+            cursor: pointer;
+        }
     }
 
     /* ======================== CONTAINER DAS SPECS ======================== */
